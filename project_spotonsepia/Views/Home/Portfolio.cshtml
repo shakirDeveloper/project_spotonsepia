@@ -1,0 +1,406 @@
+﻿
+@{
+    ViewBag.Title = "Portfolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model project_spotonsepia.Models.ContentViewModel
+
+
+<html class="no-js" lang="en">
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Abstrak | Service</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/slick.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/slick-theme.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/sal.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/green-audio-player.min.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/odometer-theme-default.css" rel="stylesheet" />
+
+
+
+
+    <!-- Site Stylesheet -->
+    <link href="~/Content/css/app.css" rel="stylesheet" />
+
+
+
+</head>
+
+
+<body class="sticky-header">
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <a href="#main-wrapper" id="backto-top" class="back-to-top">
+        <i class="far fa-angle-double-up"></i>
+    </a>
+
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+
+    <div class="my_switcher d-none d-lg-block">
+        <ul>
+            <li title="Light Mode">
+                <a href="javascript:void(0)" class="setColor light" data-theme="light">
+                    <i class="fal fa-lightbulb-on"></i>
+                </a>
+            </li>
+            <li title="Dark Mode">
+                <a href="javascript:void(0)" class="setColor dark" data-theme="dark">
+                    <i class="fas fa-moon"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="main-wrapper" class="main-wrapper">
+
+
+        <div class="breadcrum-area breadcrumb-banner">
+            <div class="container">
+                <div class="section-heading heading-left" data-sal="slide-right" data-sal-duration="1000" data-sal-delay="300">
+                    <h1 class="title h2">Our projects</h1>
+                    <p>A quick view of industry specific problems solved with design by the awesome team at Abstrak.</p>
+                </div>
+                <div class="banner-thumbnail" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="400">
+
+                    <img src="~/Content/media/banner/banner-thumb-1.png" alt="Illustration">
+                </div>
+            </div>
+            <ul class="shape-group-8 list-unstyled">
+                <li class="shape shape-1" data-sal="slide-right" data-sal-duration="500" data-sal-delay="100">
+
+                    <img src="~/Content/media/others/bubble-9.png" />
+                </li>
+                <li class="shape shape-2" data-sal="slide-left" data-sal-duration="500" data-sal-delay="200">
+
+                    <img src="~/Content/media/others/bubble-20.png" alt="Bubble">
+                </li>
+                <li class="shape shape-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="300">
+
+                    <img src="~/Content/media/others/line-4.png" />
+                </li>
+            </ul>
+        </div>
+        <!--=====================================-->
+        <!--=       Projects  Area Start        =-->
+        <!--=====================================-->
+        <section class="section section-padding-equal pt--200 pt_md--80 pt_sm--60">
+            <div class="container">
+                @using (Html.BeginForm("UploadImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Dob, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Dob, new { htmlAttributes = new { @class = "form-control", placeholder = "Employee Date Of Birth", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.Dob, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.contact, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.contact, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.contact, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.cus_address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.cus_address, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.cus_address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ad_id_fk, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ad_id_fk, new { htmlAttributes = new { @class = "form-control", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.ad_id_fk, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.file, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.file, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                            @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Upload" class="btn btn-primary" />
+                        </div>
+                    </div>
+                }
+
+                @if (Model != null && !string.IsNullOrEmpty(Model.file))
+                {
+                <img src="/Home/RetrieveImage?email=@Model.email" alt="" height=100 width=200 />
+                }
+                <div class="section-heading heading-left">
+                    <span class="subtitle">Our Project</span>
+                    <h2 class="title">Some of our finest <br> work.</h2>
+                </div>
+                <div class="axil-isotope-wrapper">
+                    <div class="isotope-button isotope-project-btn">
+                        <button data-filter="*" class="is-checked"><span class="filter-text">All Works</span></button>
+                        <button data-filter=".branding"><span class="filter-text">Branding</span></button>
+                        <button data-filter=".mobile"><span class="filter-text">Mobile</span></button>
+                    </div>
+                    <div class="row isotope-list">
+                        <div class="col-xl-4 col-md-6 project branding">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+                                        <img src="~/Content/media/project/project-1.png" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Creative Agency</a></h4>
+                                    <span class="subtitle">Full Branding, Website, App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project mobile">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+
+                                        <img src="~/Content/media/project/project-2.png" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Digital Marketing</a></h4>
+                                    <span class="subtitle">Logo, Website & Mobile App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project branding">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+
+                                        <img src="~/Content/media/project/project-3.png" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Digital Agency</a></h4>
+                                    <span class="subtitle">Website, UI/UX</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project mobile">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+
+                                        <img src="~/Content/media/project/project-4.png" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Plan Management</a></h4>
+                                    <span class="subtitle">Branding, Website, IOS App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project branding">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+
+                                        <img src="~/Content/media/project/project-5.png" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Social Engagement</a></h4>
+                                    <span class="subtitle">Design, Development</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project branding">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+
+                                        <img src="~/Content/media/project/project-6.png" />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Technical SEO</a></h4>
+                                    <span class="subtitle">Logo, Webapp, App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project mobile">
+                            <q></q>
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+                                        <img src="assets/media/project/project-1.png" alt="project">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Creative Agency</a></h4>
+                                    <span class="subtitle">Full Branding, Website, App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project branding">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+                                        <img src="assets/media/project/project-2.png" alt="project">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Digital Marketing</a></h4>
+                                    <span class="subtitle">Logo, Website & Mobile App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 project mobile">
+                            <div class="project-grid">
+                                <div class="thumbnail">
+                                    <a href="single-portfolio.html">
+                                        <img src="assets/media/project/project-3.png" alt="project">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title"><a href="single-portfolio.html">Digital Agency</a></h4>
+                                    <span class="subtitle">Website, UI/UX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-project-btn">
+                        <a href="#" class="axil-btn btn-fill-primary">Discover More Projects</a>
+                    </div>
+                </div>
+            </div>
+            <ul class="shape-group-7 list-unstyled">
+                <li class="shape shape-1"><img src="~/Content/media/others/circle-2.png" alt="circle"></li>
+                <li class="shape shape-2"><img src="~/Content/media/others/bubble-2.png" alt="Line"></li>
+                <li class="shape shape-3"><img src="~/Content/media/others/bubble-1.png" alt="Line"></li>
+
+
+            </ul>
+        </section>
+        <!--=====================================-->
+        <!--=     Call To Action Area Start     =-->
+        <!--=====================================-->
+        <section class="section call-to-action-area">
+            <div class="container">
+                <div class="call-to-action">
+                    <div class="section-heading heading-light">
+                        <span class="subtitle">Let's Work Together</span>
+                        <h2 class="title">Need a successful project?</h2>
+                        <a href="contact.html" class="axil-btn btn-large btn-fill-white">Estimate Project</a>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="larg-thumb" data-sal="zoom-in" data-sal-duration="600" data-sal-delay="100">
+                            @*<img class="paralax-image" src="assets/media/others/chat-group.png" alt="Chat">*@
+                            <img src="~/Content/media/others/chat-group.png" />
+                        </div>
+                        <ul class="list-unstyled small-thumb">
+                            <li class="shape shape-1" data-sal="slide-right" data-sal-duration="800" data-sal-delay="400">
+                                @*<img class="paralax-image" src="assets/media/others/laptop-poses.png" alt="Laptop">*@
+                                <img src="~/Content/media/others/laptop-poses.png" />
+                            </li>
+                            <li class="shape shape-2" data-sal="slide-left" data-sal-duration="800" data-sal-delay="300">
+                                @*<img class="paralax-image" src="assets/media/others/bill-pay.png" alt="Bill">*@
+                                <img src="~/Content/media/others/bill-pay.png" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-unstyled shape-group-9">
+                <li class="shape shape-1"><img src="~/Content/media/others/bubble-12.png" alt="Comments"></li>
+                <li class="shape shape-2"><img src="~/Content/media/others/bubble-16.png" alt="Comments"></li>
+                <li class="shape shape-3"><img src="~/Content/media/others/bubble-13.png" alt="Comments"></li>
+                <li class="shape shape-4"><img src="~/Content/media/others/bubble-14.png" alt="Comments"></li>
+                <li class="shape shape-5"><img src="~/Content/media/others/bubble-16.png" alt="Comments"></li>
+                <li class="shape shape-6"><img src="~/Content/media/others/bubble-15.png" alt="Comments"></li>
+                <li class="shape shape-7"><img src="~/Content/media/others/bubble-16.png" alt="Comments"></li>
+            </ul>
+        </section>
+
+        <script src="~/Scripts/vendor/bootstrap.min.js"></script>
+
+        @*<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>*@
+
+        <script src="~/Scripts/vendor/jquery-3.6.0.min.js"></script>
+
+        <script src="~/Scripts/vendor/imagesloaded.pkgd.min.js"></script>
+        <script src="~/Scripts/vendor/isotope.pkgd.min.js"></script>
+        <script src="~/Scripts/vendor/green-audio-player.min.js"></script>
+        <script src="~/Scripts/vendor/odometer.min.js"></script>
+        <script src="~/Scripts/vendor/jquery-appear.js"></script>
+        <script src="~/Scripts/vendor/slick.min.js"></script>
+        <script src="~/Scripts/vendor/sal.js"></script>
+        <script src="~/Scripts/vendor/jquery.magnific-popup.min.js"></script>
+        <script src="~/Scripts/vendor/js.cookie.js"></script>
+        <script src="~/Scripts/vendor/jquery.style.switcher.js"></script>
+        <script src="~/Scripts/vendor/tilt.js"></script>
+        <script src="~/Scripts/vendor/jquery.countdown.min.js"></script>
+        <script src="~/Scripts/vendor/jquery.nav.js"></script>
+
+        <!-- Site Scripts -->
+
+        <script src="~/Content/js/app.js"></script>
+
+    </div>
+
+</body>
+
+
+<!-- Mirrored from new.axilthemes.com/demo/template/abstrak/service.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 Jun 2022 17:41:57 GMT -->
+</html>
+
+

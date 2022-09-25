@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServicesModelStoreContainer" CdmEntityContainer="ServicesEntities">
+    <EntitySetMapping Name="tbl_admin">
+      <EntityTypeMapping TypeName="ServicesModel.tbl_admin">
+        <MappingFragment StoreEntitySet="tbl_admin">
+          <ScalarProperty Name="ad_id" ColumnName="ad_id" />
+          <ScalarProperty Name="ad_name" ColumnName="ad_name" />
+          <ScalarProperty Name="ad_email" ColumnName="ad_email" />
+          <ScalarProperty Name="ad_password" ColumnName="ad_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_customer">
+      <EntityTypeMapping TypeName="ServicesModel.tbl_customer">
+        <MappingFragment StoreEntitySet="tbl_customer">
+          <ScalarProperty Name="cus_id" ColumnName="cus_id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="cus_email" ColumnName="cus_email" />
+          <ScalarProperty Name="cus_password" ColumnName="cus_password" />
+          <ScalarProperty Name="cus_imge" ColumnName="cus_imge" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="cus_address" ColumnName="cus_address" />
+          <ScalarProperty Name="ad_id_fk" ColumnName="ad_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_invoice">
+      <EntityTypeMapping TypeName="ServicesModel.tbl_invoice">
+        <MappingFragment StoreEntitySet="tbl_invoice">
+          <ScalarProperty Name="inv_id" ColumnName="inv_id" />
+          <ScalarProperty Name="in_date" ColumnName="in_date" />
+          <ScalarProperty Name="total_bill" ColumnName="total_bill" />
+          <ScalarProperty Name="ad_id_fk" ColumnName="ad_id_fk" />
+          <ScalarProperty Name="Ser_id_fk" ColumnName="Ser_id_fk" />
+          <ScalarProperty Name="cus_id_fk" ColumnName="cus_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_order">
+      <EntityTypeMapping TypeName="ServicesModel.tbl_order">
+        <MappingFragment StoreEntitySet="tbl_order">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="folder_name" ColumnName="folder_name" />
+          <ScalarProperty Name="R_email_text" ColumnName="R_email_text" />
+          <ScalarProperty Name="R_email_subject" ColumnName="R_email_subject" />
+          <ScalarProperty Name="CreditCard" ColumnName="CreditCard" />
+          <ScalarProperty Name="order_bill" ColumnName="order_bill" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+          <ScalarProperty Name="order_qty" ColumnName="order_qty" />
+          <ScalarProperty Name="ad_id_fk" ColumnName="ad_id_fk" />
+          <ScalarProperty Name="Ser_id_fk" ColumnName="Ser_id_fk" />
+          <ScalarProperty Name="cus_id_fk" ColumnName="cus_id_fk" />
+          <ScalarProperty Name="inv_id_fk" ColumnName="inv_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_seller">
+      <EntityTypeMapping TypeName="ServicesModel.tbl_seller">
+        <MappingFragment StoreEntitySet="tbl_seller">
+          <ScalarProperty Name="visit_id" ColumnName="visit_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="sel_password" ColumnName="sel_password" />
+          <ScalarProperty Name="sel_image" ColumnName="sel_image" />
+          <ScalarProperty Name="visited_at" ColumnName="visited_at" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="ad_id_fk" ColumnName="ad_id_fk" />
+          <ScalarProperty Name="Ser_id_fk" ColumnName="Ser_id_fk" />
+          <ScalarProperty Name="cus_id_fk" ColumnName="cus_id_fk" />
+          <ScalarProperty Name="inv_id_fk" ColumnName="inv_id_fk" />
+          <ScalarProperty Name="order_id_fk" ColumnName="order_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_services">
+      <EntityTypeMapping TypeName="ServicesModel.tbl_services">
+        <MappingFragment StoreEntitySet="tbl_services">
+          <ScalarProperty Name="Ser_id" ColumnName="Ser_id" />
+          <ScalarProperty Name="Ser_name" ColumnName="Ser_name" />
+          <ScalarProperty Name="Ser_price" ColumnName="Ser_price" />
+          <ScalarProperty Name="Ser_desc" ColumnName="Ser_desc" />
+          <ScalarProperty Name="Ser_image" ColumnName="Ser_image" />
+          <ScalarProperty Name="ad_id_fk" ColumnName="ad_id_fk" />
+          <ScalarProperty Name="cus_id_fk" ColumnName="cus_id_fk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

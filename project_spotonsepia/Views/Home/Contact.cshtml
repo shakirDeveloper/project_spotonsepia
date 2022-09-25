@@ -1,0 +1,218 @@
+﻿@Html.Raw(TempData["MessageSentSuccess"])
+@if (ViewBag.Error != null)
+{
+    <h2> @ViewBag.Error </h2>
+}
+@*@{
+    ViewBag.Title = "Contact";
+}*@
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> @ViewBag.Error  - Spot On Sepia </title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/slick.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/slick-theme.css" rel="stylesheet"/>
+    <link href="~/Content/css/vendor/sal.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/green-audio-player.min.css" rel="stylesheet" />
+    <link href="~/Content/css/vendor/odometer-theme-default.css" rel="stylesheet" />
+
+
+
+
+    <!-- Site Stylesheet -->
+    <link href="~/Content/css/app.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+
+    <!--=====================================-->
+    <!--=       Breadcrumb Area Start       =-->
+    <!--=====================================-->
+
+    <div class="breadcrum-area">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul class="list-unstyled">
+                    <li><a href="index-1.html">Home</a></li>
+                    <li class="active">Contact</li>
+                </ul>
+                <h1 class="title h2">Contact</h1>
+            </div>
+        </div>
+        <ul class="shape-group-8 list-unstyled">
+            <li class="shape shape-1" data-sal="slide-right" data-sal-duration="500" data-sal-delay="100">
+
+                <img src="~/Content/media/others/bubble-9.png" alt="Bubble" />
+            </li>
+            <li class="shape shape-2" data-sal="slide-left" data-sal-duration="500" data-sal-delay="200">
+
+                <img src="~/Content/media/others/bubble-17.png" alt="Bubble" />
+            </li>
+            <li class="shape shape-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="300">
+
+                <img src="~/Content/media/others/line-4.png" alt="Line" />
+            </li>
+        </ul>
+    </div>
+    <!--=====================================-->
+    <!--=       Contact  Area Start        =-->
+    <!--=====================================-->
+    <section class="section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="contact-form-box shadow-box mb--30">
+                        <h3 class="title">CONTACT US</h3>
+                        <form method="POST" action="Contact" class="axil-contact-form">
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-control" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label>receiver Email</label>
+                                <input type="email" class="form-control" name="recEmail">
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <input type="text" class="form-control" name="message">
+                            </div>
+                            @*<div class="form-group mb--40">
+                                <label>How can we help you?</label>
+                                <textarea name="contact-message" id="contact-message" class="form-control textarea" cols="30" rows="4"></textarea>
+                            </div>*@
+                            <div class="form-group">
+                                <button type="submit" class="axil-btn btn-fill-primary btn-fluid btn-primary" name="submit-btn">SUBMIT</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6 offset-xl-1">
+                    <div class="contact-info mb--100 mb_md--30 mt_md--0 mt--150">
+                        <h4 class="title">Phone</h4>
+                        <p>Our customer care is open from Mon-Fri, 10:00 am to 6:00 pm</p>
+                        <h4 class="phone-number"><a href="tel:1234567890">(123) 456 7890</a></h4>
+                    </div>
+                    <div class="contact-info mb--30">
+                        <h4 class="title">Email</h4>
+                        <p>Our support team will get back to in 48-h during standard business hours.</p>
+                        <h4 class="phone-number"><a href="mailto:spotnsepi@gmail.com">spotnsepi@gmail.com</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="list-unstyled shape-group-12">
+            <li class="shape shape-1"><img src="~/Content/media/others/bubble-2.png" alt="Bubble"></li>
+            <li class="shape shape-2"><img src="~/Content/media/others/bubble-1.png" alt="Bubble"></li>
+
+
+            <li class="shape shape-3"><img src="~/Content/media/others/circle-3.png" alt="Circle"></li>
+        </ul>
+    </section>
+
+    <!--=====================================-->
+    <!--=       Location  Area Start        =-->
+    <!--=====================================-->
+    @*<section class="section section-padding bg-color-dark overflow-hidden">
+        <div class="container">
+            <div class="section-heading heading-light-left">
+                <span class="subtitle">Find Us</span>
+                <h2 class="title">Our office</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="office-location">
+                        <div class="thumbnail">
+
+                            <img src="~/Content/media/others/location-1.png" alt="Office" />
+                        </div>
+                        <div class="content">
+                            <h4 class="title">Virginia-HQ</h4>
+                            <p>435 Pouros Locks United States</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="office-location">
+                        <div class="thumbnail">
+
+                            <img src="~/Content/media/others/location-2.png" alt="Office" />
+                        </div>
+                        <div class="content">
+                            <h4 class="title">Nevada</h4>
+                            <p>46 Watsica Creek Suite 071 United States</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="office-location">
+                        <div class="thumbnail">
+
+                            <img src="~/Content/media/others/location-3.png" alt="Office" />
+                        </div>
+                        <div class="content">
+                            <h4 class="title">Columbia</h4>
+                            <p>7140 Wehner Tunnel Washington, D.C</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="office-location">
+                        <div class="thumbnail">
+                            <img src="~/Content/media/others/location-4.png" alt="Office" />
+
+                        </div>
+                        <div class="content">
+                            <h4 class="title">New Mexico</h4>
+                            <p>10 Maggie Valleys United States</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="shape-group-11 list-unstyled">
+            <li class="shape shape-1"><img src="~/Content/media/others/line-6.png" alt="line"></li>
+
+            <li class="shape shape-2">
+
+                <img src="~/Content/media/others/circle-3.png" alt="line" />
+            </li>
+        </ul>
+    </section>*@
+
+
+
+    @*<script src="~/Content/js/vendor/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/vendor/bootstrap.min.js"></script>
+
+    @*<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>*@
+
+    <script src="~/Scripts/vendor/jquery-3.6.0.min.js"></script>
+
+    <script src="~/Scripts/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Scripts/vendor/isotope.pkgd.min.js"></script>
+    <script src="~/Scripts/vendor/green-audio-player.min.js"></script>
+    <script src="~/Scripts/vendor/odometer.min.js"></script>
+    <script src="~/Scripts/vendor/jquery-appear.js"></script>
+    <script src="~/Scripts/vendor/slick.min.js"></script>
+    <script src="~/Scripts/vendor/sal.js"></script>
+    <script src="~/Scripts/vendor/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/vendor/js.cookie.js"></script>
+    <script src="~/Scripts/vendor/jquery.style.switcher.js"></script>
+    <script src="~/Scripts/vendor/tilt.js"></script>
+    <script src="~/Scripts/vendor/jquery.countdown.min.js"></script>
+    <script src="~/Scripts/vendor/jquery.nav.js"></script>
+
+    <!-- Site Scripts -->
+
+    <script src="~/Content/js/app.js"></script>
+</body>
+</html>

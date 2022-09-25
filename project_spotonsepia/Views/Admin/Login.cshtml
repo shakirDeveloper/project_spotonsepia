@@ -1,0 +1,50 @@
+﻿@model project_spotonsepia.Models.tbl_admin
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page </title>
+
+    <link href="~/Content/css2/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+
+
+    @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+    {
+        <div id="bg"></div>
+
+        <form style="text-align:center;">
+            <div class="form-field">
+                @Html.TextBoxFor(x => x.ad_email, new { @id = "text1", @placeholder = "Enter Your Email" })
+
+
+
+            </div>
+
+            <div class="form-field">
+                @Html.PasswordFor(x => x.ad_password, new { @id = "myInput", @placeholder = "Enter Your Password" })
+            </div>
+
+            <div class="form-field">
+                <button class="btn" type="submit">Log in</button>
+            </div>
+            <div class="form-field">
+
+                <a class="link-info" style="cursor:pointer" href="@Url.Action("SignUp","Admin")">Don't have account? Click to Sign Up</a>
+
+            </div>
+        </form>
+
+
+    }
+
+
+</body>
+</html>

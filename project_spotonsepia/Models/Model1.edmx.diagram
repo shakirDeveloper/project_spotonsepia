@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee20ea81b3e34a9194cf5b11590feb67" Name="Diagram1">
+        <EntityTypeShape EntityType="ServicesModel.tbl_admin" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesModel.tbl_customer" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesModel.tbl_invoice" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesModel.tbl_order" Width="1.5" PointX="10.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesModel.tbl_seller" Width="1.5" PointX="12.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServicesModel.tbl_services" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_custo__ad_id__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_invoi__ad_id__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_order__ad_id__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_selle__ad_id__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_servi__ad_id__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_invoi__cus_i__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_order__cus_i__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_selle__cus_i__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_servi__cus_i__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_invoi__Ser_i__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_order__inv_i__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_selle__inv_i__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_order__Ser_i__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_selle__order__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="ServicesModel.FK__tbl_selle__Ser_i__24927208" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

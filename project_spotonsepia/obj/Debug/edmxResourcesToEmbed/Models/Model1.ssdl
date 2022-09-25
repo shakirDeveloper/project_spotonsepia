@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServicesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_admin">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_customer">
+    <Key>
+      <PropertyRef Name="cus_id" />
+    </Key>
+    <Property Name="cus_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cus_email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cus_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cus_imge" Type="varchar(max)" Nullable="false" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dob" Type="datetime" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contact" Type="int" />
+    <Property Name="cus_address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_id_fk" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_invoice">
+    <Key>
+      <PropertyRef Name="inv_id" />
+    </Key>
+    <Property Name="inv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="in_date" Type="datetime" />
+    <Property Name="total_bill" Type="float" />
+    <Property Name="ad_id_fk" Type="int" />
+    <Property Name="Ser_id_fk" Type="int" />
+    <Property Name="cus_id_fk" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="R_email_text" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="R_email_subject" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreditCard" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="order_bill" Type="float" />
+    <Property Name="unit_price" Type="float" />
+    <Property Name="order_qty" Type="int" />
+    <Property Name="ad_id_fk" Type="int" />
+    <Property Name="Ser_id_fk" Type="int" />
+    <Property Name="cus_id_fk" Type="int" />
+    <Property Name="inv_id_fk" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_seller">
+    <Key>
+      <PropertyRef Name="visit_id" />
+    </Key>
+    <Property Name="visit_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sel_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sel_image" Type="varchar(max)" Nullable="false" />
+    <Property Name="visited_at" Type="datetime" />
+    <Property Name="phone" Type="varchar" MaxLength="20" />
+    <Property Name="city" Type="varchar" MaxLength="20" />
+    <Property Name="ad_id_fk" Type="int" />
+    <Property Name="Ser_id_fk" Type="int" />
+    <Property Name="cus_id_fk" Type="int" />
+    <Property Name="inv_id_fk" Type="int" />
+    <Property Name="order_id_fk" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_services">
+    <Key>
+      <PropertyRef Name="Ser_id" />
+    </Key>
+    <Property Name="Ser_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ser_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ser_price" Type="int" />
+    <Property Name="Ser_desc" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Ser_image" Type="varchar(max)" Nullable="false" />
+    <Property Name="ad_id_fk" Type="int" />
+    <Property Name="cus_id_fk" Type="int" />
+  </EntityType>
+  <Association Name="FK__tbl_custo__ad_id__1273C1CD">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_customer" Type="Self.tbl_customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_customer">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_invoi__ad_id__1920BF5C">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_invoi__cus_i__1B0907CE">
+    <End Role="tbl_customer" Type="Self.tbl_customer" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_customer">
+        <PropertyRef Name="cus_id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="cus_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_invoi__Ser_i__1A14E395">
+    <End Role="tbl_services" Type="Self.tbl_services" Multiplicity="0..1" />
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_services">
+        <PropertyRef Name="Ser_id" />
+      </Principal>
+      <Dependent Role="tbl_invoice">
+        <PropertyRef Name="Ser_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_order__ad_id__1DE57479">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_order__cus_i__1FCDBCEB">
+    <End Role="tbl_customer" Type="Self.tbl_customer" Multiplicity="0..1" />
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_customer">
+        <PropertyRef Name="cus_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="cus_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_order__inv_i__20C1E124">
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="0..1" />
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_invoice">
+        <PropertyRef Name="inv_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="inv_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_order__Ser_i__1ED998B2">
+    <End Role="tbl_services" Type="Self.tbl_services" Multiplicity="0..1" />
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_services">
+        <PropertyRef Name="Ser_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="Ser_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_selle__ad_id__239E4DCF">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_seller" Type="Self.tbl_seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_seller">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_selle__cus_i__25869641">
+    <End Role="tbl_customer" Type="Self.tbl_customer" Multiplicity="0..1" />
+    <End Role="tbl_seller" Type="Self.tbl_seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_customer">
+        <PropertyRef Name="cus_id" />
+      </Principal>
+      <Dependent Role="tbl_seller">
+        <PropertyRef Name="cus_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_selle__inv_i__267ABA7A">
+    <End Role="tbl_invoice" Type="Self.tbl_invoice" Multiplicity="0..1" />
+    <End Role="tbl_seller" Type="Self.tbl_seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_invoice">
+        <PropertyRef Name="inv_id" />
+      </Principal>
+      <Dependent Role="tbl_seller">
+        <PropertyRef Name="inv_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_selle__order__276EDEB3">
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="0..1" />
+    <End Role="tbl_seller" Type="Self.tbl_seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="tbl_seller">
+        <PropertyRef Name="order_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_selle__Ser_i__24927208">
+    <End Role="tbl_services" Type="Self.tbl_services" Multiplicity="0..1" />
+    <End Role="tbl_seller" Type="Self.tbl_seller" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_services">
+        <PropertyRef Name="Ser_id" />
+      </Principal>
+      <Dependent Role="tbl_seller">
+        <PropertyRef Name="Ser_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_servi__ad_id__15502E78">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_services" Type="Self.tbl_services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_services">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_servi__cus_i__164452B1">
+    <End Role="tbl_customer" Type="Self.tbl_customer" Multiplicity="0..1" />
+    <End Role="tbl_services" Type="Self.tbl_services" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_customer">
+        <PropertyRef Name="cus_id" />
+      </Principal>
+      <Dependent Role="tbl_services">
+        <PropertyRef Name="cus_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ServicesModelStoreContainer">
+    <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_customer" EntityType="Self.tbl_customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_invoice" EntityType="Self.tbl_invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_order" EntityType="Self.tbl_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_seller" EntityType="Self.tbl_seller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_services" EntityType="Self.tbl_services" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_custo__ad_id__1273C1CD" Association="Self.FK__tbl_custo__ad_id__1273C1CD">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_customer" EntitySet="tbl_customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_invoi__ad_id__1920BF5C" Association="Self.FK__tbl_invoi__ad_id__1920BF5C">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_invoi__cus_i__1B0907CE" Association="Self.FK__tbl_invoi__cus_i__1B0907CE">
+      <End Role="tbl_customer" EntitySet="tbl_customer" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_invoi__Ser_i__1A14E395" Association="Self.FK__tbl_invoi__Ser_i__1A14E395">
+      <End Role="tbl_services" EntitySet="tbl_services" />
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_order__ad_id__1DE57479" Association="Self.FK__tbl_order__ad_id__1DE57479">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_order__cus_i__1FCDBCEB" Association="Self.FK__tbl_order__cus_i__1FCDBCEB">
+      <End Role="tbl_customer" EntitySet="tbl_customer" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_order__inv_i__20C1E124" Association="Self.FK__tbl_order__inv_i__20C1E124">
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_order__Ser_i__1ED998B2" Association="Self.FK__tbl_order__Ser_i__1ED998B2">
+      <End Role="tbl_services" EntitySet="tbl_services" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_selle__ad_id__239E4DCF" Association="Self.FK__tbl_selle__ad_id__239E4DCF">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_seller" EntitySet="tbl_seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_selle__cus_i__25869641" Association="Self.FK__tbl_selle__cus_i__25869641">
+      <End Role="tbl_customer" EntitySet="tbl_customer" />
+      <End Role="tbl_seller" EntitySet="tbl_seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_selle__inv_i__267ABA7A" Association="Self.FK__tbl_selle__inv_i__267ABA7A">
+      <End Role="tbl_invoice" EntitySet="tbl_invoice" />
+      <End Role="tbl_seller" EntitySet="tbl_seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_selle__order__276EDEB3" Association="Self.FK__tbl_selle__order__276EDEB3">
+      <End Role="tbl_order" EntitySet="tbl_order" />
+      <End Role="tbl_seller" EntitySet="tbl_seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_selle__Ser_i__24927208" Association="Self.FK__tbl_selle__Ser_i__24927208">
+      <End Role="tbl_services" EntitySet="tbl_services" />
+      <End Role="tbl_seller" EntitySet="tbl_seller" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_servi__ad_id__15502E78" Association="Self.FK__tbl_servi__ad_id__15502E78">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_services" EntitySet="tbl_services" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_servi__cus_i__164452B1" Association="Self.FK__tbl_servi__cus_i__164452B1">
+      <End Role="tbl_customer" EntitySet="tbl_customer" />
+      <End Role="tbl_services" EntitySet="tbl_services" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
